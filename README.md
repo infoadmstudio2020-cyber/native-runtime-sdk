@@ -1,6 +1,6 @@
 # NativeRuntimeSDK (Layer 4 Master Orchestration SDK)
 
-[![Release](https://img.shields.io/badge/Release-v1.0.0-blue.svg)](https://github.com/infoadmstudio2020-cyber/native-runtime-sdk/releases)
+[![Release](https://img.shields.io/badge/Release-v1.0.1-blue.svg)](https://github.com/infoadmstudio2020-cyber/native-runtime-sdk/releases)
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)](https://android-arsenal.com/api?level=21)
 [![License](https://img.shields.io/badge/License-Apache-2.0-blue.svg)](LICENSE)
 [![Architecture](https://img.shields.io/badge/Architecture-NativeRuntime%20L4%20Master-orange.svg)](#architecture)
@@ -84,7 +84,7 @@ dependencies {
     api 'com.github.infoadmstudio2020-cyber:native-runtime-ui:v1.0.0'
 
     // 2. ENCAPSULATED IMPLEMENTATIONS (Engineered inside NativeRuntimeSDK)
-    implementation 'com.github.infoadmstudio2020-cyber:NativeRuntimeSDK:1.0.0'
+    implementation 'com.github.infoadmstudio2020-cyber:NativeRuntimeSDK:1.0.1'
 }
 ```
 

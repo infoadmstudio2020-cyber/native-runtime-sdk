@@ -12,7 +12,7 @@ Transform the generated Android Studio scaffold project for **NativeRuntimeSDK**
 - **Companion Demo App**: `app` (includeDemoApp = true)
 - **Maven Group ID**: `com.github.native-runtime`
 - **Artifact ID**: `native-runtime-sdk`
-- **Semantic Version**: `1.0.0`
+- **Semantic Version**: `1.0.1`
 - **Root Java Package**: `com.roni.library.sdk`
 - **Primary Public Entry Point**: `NativeRuntime`
 - **Architecture Classification**: `Layer 4: Master Orchestration` (`L4`)
@@ -60,7 +60,7 @@ Transform the generated Android Studio scaffold project for **NativeRuntimeSDK**
 ### Step 1: Audit and Wire Layer Dependencies
 - Open `library/build.gradle` and verify dependencies.
 - Ensure `com.android.library` and `maven-publish` are active.
-- Verify MavenPublication coordinates: `groupId: com.github.native-runtime`, `artifactId: native-runtime-sdk`, `version: 1.0.0`.
+- Verify MavenPublication coordinates: `groupId: com.github.native-runtime`, `artifactId: native-runtime-sdk`, `version: 1.0.1`.
 
 ### Step 2: Implement Core Engine & Internal Models
 - Replace placeholder stub methods in `NativeRuntime.java` with actual state machine logic, thread pool executors, and error handling guards.

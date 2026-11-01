@@ -3,7 +3,7 @@
 All notable changes to NativeRuntimeSDK are documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com).
 
-## [1.0.0] — 2026-11-02
+## [1.0.1] — 2026-11-02
 
 ### Added
 - Complete Master Turnkey Facade: `NativeRuntime`.

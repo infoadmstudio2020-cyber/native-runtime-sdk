@@ -1,6 +1,11 @@
 package com.roni.library.sdk;
 
 import android.content.Context;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.roni.library.contracts.api.NativeApiError;
 import com.roni.library.contracts.api.NativeApiRequest;
 import com.roni.library.contracts.api.NativeApiResponse;
 import com.roni.library.contracts.common.RuntimeState;
@@ -102,13 +107,17 @@ public final class NativeRuntime {
 
     public synchronized void pauseSession() {
         RuntimeSession session = currentSession.get();
+
         if (session != null) {
             session.markPaused();
-            this.state = RuntimeState.PAUSED;
+            this.state = RuntimeState.SUSPENDED;
+
             for (LifecycleObserver obs : observers) {
                 try {
                     obs.onSessionPaused(session);
-                } catch (Throwable ignored) {}
+                } catch (Exception ignored) {
+                    // Observer failure must not interrupt lifecycle dispatch.
+                }
             }
         }
     }
@@ -190,15 +199,34 @@ public final class NativeRuntime {
         }
     }
 
+
     /**
-     * Standard RPC dispatcher delegating requests to the underlying layer handlers.
+     * Standard RPC dispatcher delegating requests
+     * to the underlying layer handlers.
      */
-    public NativeApiResponse executeApiRequest(NativeApiRequest request) {
+    @NonNull
+    public NativeApiResponse executeApiRequest(@Nullable NativeApiRequest request) {
+
         if (request == null) {
-            return NativeApiResponse.failure("req_unknown", 400, "Null request object");
+            return NativeApiResponse.error(
+                    "req_unknown",
+                    400,
+                    new NativeApiError(
+                            "INVALID_REQUEST",
+                            "Null request object"
+                    )
+            );
         }
+
         if (!isInitialized()) {
-            return NativeApiResponse.failure(request.getRequestId(), 503, "NativeRuntime is not initialized");
+            return NativeApiResponse.error(
+                    request.getRequestId(),
+                    503,
+                    new NativeApiError(
+                            "RUNTIME_NOT_INITIALIZED",
+                            "NativeRuntime is not initialized"
+                    )
+            );
         }
 
         Map<String, Object> data = new HashMap<>();
@@ -207,7 +235,10 @@ public final class NativeRuntime {
         data.put("action", request.getAction());
         data.put("timestamp", System.currentTimeMillis());
 
-        return NativeApiResponse.success(request.getRequestId(), data);
+        return NativeApiResponse.success(
+                request.getRequestId(),
+                data
+        );
     }
 
     /**

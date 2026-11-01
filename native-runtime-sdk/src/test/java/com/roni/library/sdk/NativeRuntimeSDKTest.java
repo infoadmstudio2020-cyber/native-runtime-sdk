@@ -137,7 +137,7 @@ public class NativeRuntimeSDKTest {
 
         runtime.pauseSession();
         Assert.assertEquals(RuntimeSession.State.PAUSED, session.getState());
-        Assert.assertEquals(RuntimeState.PAUSED, runtime.getState());
+        Assert.assertEquals(RuntimeState.SUSPENDED, runtime.getState());
 
         runtime.resumeSession();
         Assert.assertEquals(RuntimeSession.State.ACTIVE, session.getState());

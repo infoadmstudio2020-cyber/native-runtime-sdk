@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="v1.0.0 • Layer 4 Master Orchestration • Turnkey Umbrella SDK"
+            android:text="v1.0.1 • Layer 4 Master Orchestration • Turnkey Umbrella SDK"
             android:textSize="12sp"
             android:textColor="#64748B"
             android:paddingBottom="12dp" />
