@@ -84,7 +84,7 @@ dependencies {
     api 'com.github.infoadmstudio2020-cyber:native-runtime-ui:v1.0.0'
 
     // 2. ENCAPSULATED IMPLEMENTATIONS (Engineered inside NativeRuntimeSDK)
-    implementation 'com.github.infoadmstudio2020-cyber:NativeRuntimeSDK:1.0.1'
+    implementation 'com.github.infoadmstudio2020-cyber:native-runtime-sdk:1.0.1'
 }
 ```
 
